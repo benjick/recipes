@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import type { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import { getRecipe, getRecipesPaths, Recipe } from "../src/recipe";
 
 interface Props {
@@ -9,6 +10,9 @@ interface Props {
 const Home: NextPage<Props> = ({ recipes }) => {
   return (
     <div>
+      <Head>
+        <title>My recipes</title>
+      </Head>
       <main>
         <div className="relative px-4 pt-16 pb-20 bg-gray-50 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
           <div className="absolute inset-0">
