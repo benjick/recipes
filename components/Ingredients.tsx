@@ -17,9 +17,9 @@ export const SingleIngredient: React.FC<ChildProps> = ({ ingredient }) => {
     return <CheckItem>{ingredient}</CheckItem>;
   }
   return (
-    <div className="relative block px-6 py-4 -mx-6 text-xs bg-white border rounded-lg shadow-sm focus:outline-none">
+    <div className="relative block px-6 py-4 -mx-6 bg-white border rounded-lg shadow-sm focus:outline-none">
       <button
-        className="flex w-full"
+        className="flex w-full text-xs font-bold"
         onClick={() => setOpen((isOpen) => !isOpen)}
       >
         <h2 className={classNames("uppercase", open ? "pb-4" : "")}>
