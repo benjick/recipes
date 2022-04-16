@@ -5,6 +5,7 @@ import { useState } from "react";
 import { getRecipe, getRecipesPaths, Recipe } from "../src/recipe";
 import { RadioGroup } from "@headlessui/react";
 import { CheckItem } from "../components/CheckItem";
+import { Ingredients } from "../components/Ingredients";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -74,12 +75,7 @@ const RecipePage: NextPage<Props> = ({ recipe }) => {
             ))}
           </div>
         </RadioGroup>
-        <fieldset className="p-5 space-y-5">
-          <legend className="sr-only">Notifications</legend>
-          {recipe.ingredients.map((ingredient, i) => (
-            <CheckItem key={i}>{ingredient}</CheckItem>
-          ))}
-        </fieldset>
+        <Ingredients ingredients={recipe.ingredients} />
       </main>
     </div>
   );

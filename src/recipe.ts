@@ -2,6 +2,13 @@ import { readFileSync, readdirSync } from "fs";
 import { join, resolve } from "path";
 import { parse } from "yaml";
 
+export type Ingredient =
+  | {
+      title: string;
+      children: string[];
+    }
+  | string;
+
 export interface Recipe {
   slug: string;
   name: string;
@@ -9,7 +16,7 @@ export interface Recipe {
   duration: string;
   serves: number;
   image: string;
-  ingredients: string[];
+  ingredients: Ingredient[];
   instructions: string[];
 }
 
