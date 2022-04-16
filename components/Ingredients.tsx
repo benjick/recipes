@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Ingredient } from "../src/recipe";
 import { CheckItem } from "./CheckItem";
+import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/outline";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -16,17 +17,24 @@ export const SingleIngredient: React.FC<ChildProps> = ({ ingredient }) => {
     return <CheckItem>{ingredient}</CheckItem>;
   }
   return (
-    <div className="relative block px-6 py-4 -mx-6 bg-white border rounded-lg shadow-sm focus:outline-none">
-      <button onClick={() => setOpen((isOpen) => !isOpen)}>
-        <h2 className={classNames("text-xs uppercase", open ? "pb-4" : "")}>
-          {ingredient.title}
+    <div className="relative block px-6 py-4 -mx-6 text-xs bg-white border rounded-lg shadow-sm focus:outline-none">
+      <button
+        className="flex w-full"
+        onClick={() => setOpen((isOpen) => !isOpen)}
+      >
+        <h2 className={classNames("uppercase", open ? "pb-4" : "")}>
+          {ingredient.title}{" "}
         </h2>
+        {open ? (
+          <MinusCircleIcon className="w-4 h-4 ml-1 text-gray-400" />
+        ) : (
+          <PlusCircleIcon className="w-4 h-4 ml-1 text-gray-400" />
+        )}
       </button>
-      <div className="space-y-5">
-        {open &&
-          ingredient.children.map((ingredient, i) => (
-            <CheckItem key={i}>{ingredient}</CheckItem>
-          ))}
+      <div className={classNames("space-y-5 ", open ? "h-auto" : "h-0 hidden")}>
+        {ingredient.children.map((ingredient, i) => (
+          <CheckItem key={i}>{ingredient}</CheckItem>
+        ))}
       </div>
     </div>
   );
