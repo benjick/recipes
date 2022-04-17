@@ -13,7 +13,6 @@ interface Props {
 }
 
 export const Instructions: React.FC<Props> = ({ instructions }) => {
-  console.log("instructions", instructions);
   const [selected, setSelected] = useState(() => instructions[0]);
   return (
     <RadioGroup value={selected} onChange={setSelected}>
