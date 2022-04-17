@@ -5,7 +5,7 @@ export default function Footer() {
         <a
           href="https://github.com/benjick/recipes"
           target="_blank"
-          className="block mt-8 text-base text-center text-gray-400"
+          className="block mt-8 text-base text-center"
           rel="noreferrer"
         >
           🍔 🍟 🍕 🌭 🥪 🌮 🌯 🫔 🥙 🧆 🍲 🥗
