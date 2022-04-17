@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { PauseIcon, PlayIcon, PlusCircleIcon } from "@heroicons/react/solid";
 import { setInterval, clearInterval } from "worker-timers";
 import useSound from "use-sound";
-import bells from "../assets/bells.wav";
+import bells from "../assets/bells.mp3";
 import { classNames } from "../src/helpers";
 
 function msToTime(s: number) {
