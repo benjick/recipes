@@ -1,29 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
 import { getRecipe, getRecipesPaths, Recipe } from "../src/recipe";
-import { RadioGroup } from "@headlessui/react";
-import { CheckItem } from "../components/CheckItem";
 import { Ingredients } from "../components/Ingredients";
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import Instructions from "../components/Instructions";
 
 interface Props {
   recipe: Recipe;
 }
 
 const RecipePage: NextPage<Props> = ({ recipe }) => {
-  const [selected, setSelected] = useState(recipe.instructions[0]);
   return (
     <div>
       <Head>
         <title>{recipe.name}</title>
       </Head>
 
-      <div className="relative aspect-[4/1]">
+      <div className="relative aspect-[2/1] md:aspect-[4/1]">
         <img
           className="absolute object-cover w-full h-full"
           src={recipe.image}
@@ -33,49 +26,13 @@ const RecipePage: NextPage<Props> = ({ recipe }) => {
           {recipe.name}
         </h1>
       </div>
-      <main className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <RadioGroup value={selected} onChange={setSelected}>
-          <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
-          <div className="p-4 space-y-4">
-            {recipe.instructions.map((instruction, i) => (
-              <RadioGroup.Option
-                key={i}
-                value={instruction}
-                className={({ checked, active }) =>
-                  classNames(
-                    checked ? "border-transparent" : "border-gray-300",
-                    active ? "border-indigo-500 ring-2 ring-indigo-500" : "",
-                    "relative block bg-white border rounded-lg shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none"
-                  )
-                }
-              >
-                {({ active, checked }) => (
-                  <>
-                    <div className="flex items-center">
-                      <div className="text">
-                        <RadioGroup.Label
-                          as="p"
-                          className="font-medium text-gray-900"
-                        >
-                          {instruction}
-                        </RadioGroup.Label>
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(
-                        active ? "border" : "border-2",
-                        checked ? "border-indigo-500" : "border-transparent",
-                        "absolute -inset-px rounded-lg pointer-events-none"
-                      )}
-                      aria-hidden="true"
-                    />
-                  </>
-                )}
-              </RadioGroup.Option>
-            ))}
-          </div>
-        </RadioGroup>
-        <Ingredients ingredients={recipe.ingredients} />
+      <main className="grid grid-cols-1 gap-4 md:grid-cols-12">
+        <section className="md:col-span-7">
+          <Instructions instructions={recipe.instructions} />
+        </section>
+        <section className="md:col-span-5">
+          <Ingredients ingredients={recipe.ingredients} />
+        </section>
       </main>
     </div>
   );
