@@ -28,14 +28,17 @@ ingredients:
   - "For serving: Rice and papadams"
 
 instructions:
-  - Rinse the lentils in cold water until the water runs clear.
-  - text: Heat a large, deep skillet or large saucepan over medium-high heat and add the coconut oil. Once the oil is shimmering, add the *garlic, ginger, and Serrano pepper* and cook for 2 minutes, stirring frequently to prevent garlic from burning.
+  - Rinse **the lentils** in cold water until the water runs clear.
+  - text: Heat a large, deep skillet or large saucepan over medium-high heat and add the coconut oil. Once the oil is shimmering, add the **garlic, ginger, and Serrano pepper** and cook for 2 minutes, stirring frequently to prevent garlic from burning.
     timer: 2
-  - text: Add the *dried spices*, and cook for 30 to 60 seconds until fragrant, tossing frequently to prevent burning.
+  - text: Add the **dried spices**, and cook for 30 to 60 seconds until fragrant, tossing frequently to prevent burning.
     timer: 0.5
-  - text: Pour in the vegetable broth, and use a wooden spoon or spatula to scrape up any browned bits on the bottom of the pot. Add in *the lentils and the crushed tomatoes* and mix well. Reduce the heat to low and cover the pan with a lid. Simmer for 20 to 25 minutes, or until the lentils are cooked through and have mostly softened. If you find that the lentils are not quite soft after 25 minutes, add a few spoons more of broth or water and cook for another 5 minutes.
+  - text: |-
+      Pour in the vegetable broth, and use a wooden spoon or spatula to scrape up any browned bits on the bottom of the pot. Add in **the lentils and the crushed tomatoes** and mix well.
+
+      Reduce the heat to low and cover the pan with a lid. Simmer for 20 to 25 minutes, or until the lentils are cooked through and have mostly softened. If you find that the lentils are not quite soft after 25 minutes, add a few spoons more of broth or water and cook for another 5 minutes.
     timer: 20
-  - text: Remove the lid and stir in *the coconut milk, almond butter, along with salt and pepper to taste*. Continue cooking on low heat, uncovered for 5 to 8 minutes, until the curry has thickened and is creamy.
+  - text: Remove the lid and stir in **the coconut milk, almond butter, along with salt and pepper to taste**. Continue cooking on low heat, uncovered for 5 to 8 minutes, until the curry has thickened and is creamy.
     timer: 5
-  - Finally, stir in *the lemon juice and cilantro*, and turn off the heat.
+  - Finally, stir in **the lemon juice and cilantro**, and turn off the heat.
   - Serve the curry with rice and/or Indian flatbread and garnish with additional cilantro. Store leftovers in the fridge for 3-4 days.

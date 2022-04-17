@@ -2,6 +2,7 @@ import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { Instruction } from "../src/recipe";
 import { Timer } from "./Timer";
+import { Markdown } from "./Markdown";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export const Instructions: React.FC<Props> = ({ instructions }) => {
+  console.log("instructions", instructions);
   const [selected, setSelected] = useState(() => instructions[0]);
   return (
     <RadioGroup value={selected} onChange={setSelected}>
@@ -32,11 +34,13 @@ export const Instructions: React.FC<Props> = ({ instructions }) => {
             {({ checked }) => (
               <>
                 <div className="flex items-center">
-                  <div className="font-serif text-lg">
-                    <RadioGroup.Label as="p" className="text-gray-900">
-                      {typeof instruction === "string"
-                        ? instruction
-                        : instruction.text}
+                  <div className="text-lg ">
+                    <RadioGroup.Label as="div" className="text-gray-900">
+                      <Markdown>
+                        {typeof instruction === "string"
+                          ? instruction
+                          : instruction.text}
+                      </Markdown>
                     </RadioGroup.Label>
                     {typeof instruction !== "string" ? (
                       <RadioGroup.Description
