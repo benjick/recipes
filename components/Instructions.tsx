@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
+import { Instruction } from "../src/recipe";
+import { Timer } from "./Timer";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 interface Props {
-  instructions: string[];
+  instructions: Instruction[];
 }
 
-const Instructions: React.FC<Props> = ({ instructions }) => {
+export const Instructions: React.FC<Props> = ({ instructions }) => {
   const [selected, setSelected] = useState(() => instructions[0]);
   return (
     <RadioGroup value={selected} onChange={setSelected}>
@@ -23,23 +25,32 @@ const Instructions: React.FC<Props> = ({ instructions }) => {
               classNames(
                 checked ? "border-transparent" : "border-gray-300",
                 active ? "border-indigo-500 ring-2 ring-indigo-500" : "",
-                "relative block bg-white border rounded-lg shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none"
+                "relative block bg-white border rounded-lg shadow-sm px-6 py-4 sm:flex sm:justify-between focus:outline-none"
               )
             }
           >
-            {({ active, checked }) => (
+            {({ checked }) => (
               <>
                 <div className="flex items-center">
                   <div className="font-serif text-lg">
                     <RadioGroup.Label as="p" className="text-gray-900">
-                      {instruction}
+                      {typeof instruction === "string"
+                        ? instruction
+                        : instruction.text}
                     </RadioGroup.Label>
+                    {typeof instruction !== "string" ? (
+                      <RadioGroup.Description
+                        as="div"
+                        className={classNames(checked ? "visible" : "hidden")}
+                      >
+                        <Timer minutes={instruction.timer} />
+                      </RadioGroup.Description>
+                    ) : null}
                   </div>
                 </div>
                 <div
                   className={classNames(
-                    active ? "border" : "border-2",
-                    checked ? "border-indigo-500" : "border-transparent",
+                    checked ? "border border-indigo-500" : "border-transparent",
                     "absolute -inset-px rounded-lg pointer-events-none"
                   )}
                   aria-hidden="true"
@@ -52,5 +63,3 @@ const Instructions: React.FC<Props> = ({ instructions }) => {
     </RadioGroup>
   );
 };
-
-export default Instructions;

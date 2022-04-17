@@ -2,12 +2,20 @@ import { readFileSync, readdirSync } from "fs";
 import { join, resolve } from "path";
 import { parse } from "yaml";
 
-export type Ingredient =
-  | {
-      title: string;
-      children: string[];
-    }
-  | string;
+interface IngredientGroup {
+  title: string;
+  children: string[];
+}
+
+export type Ingredient = IngredientGroup | string;
+
+interface InstructionWithTimer {
+  text: string;
+  /** minutes */
+  timer: number;
+}
+
+export type Instruction = InstructionWithTimer | string;
 
 export interface Recipe {
   slug: string;
@@ -17,7 +25,7 @@ export interface Recipe {
   serves: number;
   image: string;
   ingredients: Ingredient[];
-  instructions: string[];
+  instructions: Instruction[];
 }
 
 function getRecipeFolder() {

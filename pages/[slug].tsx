@@ -3,7 +3,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { getRecipe, getRecipesPaths, Recipe } from "../src/recipe";
 import { Ingredients } from "../components/Ingredients";
-import Instructions from "../components/Instructions";
+import { Instructions } from "../components/Instructions";
 
 interface Props {
   recipe: Recipe;
