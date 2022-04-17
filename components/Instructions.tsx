@@ -3,10 +3,7 @@ import { RadioGroup } from "@headlessui/react";
 import { Instruction } from "../src/recipe";
 import { Timer } from "./Timer";
 import { Markdown } from "./Markdown";
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import { classNames } from "../src/helpers";
 
 interface Props {
   instructions: Instruction[];

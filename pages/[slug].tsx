@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import { Tab } from "@headlessui/react";
 import { getRecipe, getRecipesPaths, Recipe } from "../src/recipe";
 import { Ingredients } from "../components/Ingredients";
 import { Instructions } from "../components/Instructions";
+import { classNames } from "../src/helpers";
 
 interface Props {
   recipe: Recipe;
@@ -26,14 +28,58 @@ const RecipePage: NextPage<Props> = ({ recipe }) => {
           {recipe.name}
         </h1>
       </div>
-      <main className="grid grid-cols-1 gap-4 md:grid-cols-12">
-        <section className="md:col-span-7">
+      {/* Desktop */}
+      <div className="hidden grid-cols-12 gap-4 sm:grid">
+        <section className="col-span-7">
           <Instructions instructions={recipe.instructions} />
         </section>
-        <section className="md:col-span-5">
+        <section className="col-span-5">
           <Ingredients ingredients={recipe.ingredients} />
         </section>
-      </main>
+      </div>
+      {/* Mobile */}
+      <div className="sm:hidden">
+        <Tab.Group>
+          <div className="border-b border-gray-200">
+            <Tab.List className="flex pl-8 -mb-px space-x-8">
+              <Tab
+                key="instructions"
+                className={({ selected }) =>
+                  classNames(
+                    selected
+                      ? "border-indigo-500 text-indigo-600"
+                      : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200",
+                    "whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm"
+                  )
+                }
+              >
+                Instructions
+              </Tab>
+              <Tab
+                key="ingredients"
+                className={({ selected }) =>
+                  classNames(
+                    selected
+                      ? "border-indigo-500 text-indigo-600"
+                      : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200",
+                    "whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm"
+                  )
+                }
+              >
+                Ingredients
+              </Tab>
+            </Tab.List>
+          </div>
+          <Tab.Panels>
+            <Tab.Panel unmount={false} key={0}>
+              <Instructions instructions={recipe.instructions} />
+            </Tab.Panel>
+            <Tab.Panel unmount={false} key={1} className="p-6 py-4">
+              <Ingredients ingredients={recipe.ingredients} />
+            </Tab.Panel>
+          </Tab.Panels>
+        </Tab.Group>
+      </div>
     </div>
   );
 };

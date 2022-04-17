@@ -1,17 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  PauseIcon,
-  PlayIcon,
-  PlusCircleIcon,
-  XCircleIcon,
-} from "@heroicons/react/solid";
+import { PauseIcon, PlayIcon, PlusCircleIcon } from "@heroicons/react/solid";
 import { setInterval, clearInterval } from "worker-timers";
 import useSound from "use-sound";
 import bells from "../assets/bells.wav";
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import { classNames } from "../src/helpers";
 
 function msToTime(s: number) {
   const prefix = s < 0 ? "-" : "";
