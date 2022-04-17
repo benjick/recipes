@@ -15,8 +15,9 @@ ingredients:
   - Salt to taste
 
 instructions:
-  - Chop and saute the onions and the garlic
-  - Add the curry paste and let it blend with the onions
-  - Add everything else except the rice, bring to a boil and make sure the peanut butter is stirred well
-  - Add in the rice and let simmer for 45 minutes
+  - Chop and saute **the onions and the garlic**
+  - Add **the curry paste** and let it blend with the onions
+  - Add **everything else except the rice**, bring to a boil and make sure the peanut butter is stirred well
+  - text: Add in the rice and let simmer for 45 minutes
+    timer: 45
   - Stir once in a while

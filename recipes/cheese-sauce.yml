@@ -14,7 +14,8 @@ ingredients:
   - Salt to taste
 
 instructions:
-  - Put the sunflower seeds in hot water for 30 minutes
-  - Cook the pasta
-  - Add everything else in a blender
+  - text: Put the sunflower seeds in hot water for 30 minutes
+    timer: 30
+  - Cook the pasta and save about 1 dl of pasta water
+  - Mix **the sunflower seeds** in a blender with **the water, nooch, citrus juice, garlic salt and pepper**
   - Add some pasta water to the blender until you find a good thickness
