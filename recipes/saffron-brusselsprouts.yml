@@ -1,0 +1,22 @@
+name: Saffron brusselsprouts
+duration: 20 minutes
+serves: 4
+image: /images/saffron-brusselsprouts.jpg
+
+ingredients:
+  - 500g brusselsprouts
+  - 1 red onion
+  - 2 dl vegan creme
+  - 0.125 grams of saffron
+  - 1 tablespoon lemon
+  - salt
+  - pepper
+  - chili flakes
+
+instructions:
+  - Peel, chop, and fry the onion in a pot
+  - Put the brusselsprouts and the creme into the pot
+  - Add saffron, lemon, salt, and pepper
+  - text: Let boil on low heat until the brusselsprouts are soft. 5 minutes for frozen brusselsprouts and 10 minutes for fresh
+    timer: 5
+  - Serve with chili flakes
